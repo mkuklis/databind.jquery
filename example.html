@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.js"></script>
+    <script type="text/javascript" src="jquery.databind.js"></script>
+  </head>
+  <body>
+
+    <input id="input" type="text" value="" /><br />
+    <input class="test" type="text" value="" /><br />
+    <input class="test2" type="text" value="" data-bind=".test.val:this.val" /><br />
+    <span id="span1" data-bind="#input.val:text"></span><br />
+    <span id="span2" data-bind="$person.name.first"></span><br />
+    
+    <script type="text/javascript">
+      var person = {name:{"first": "John"}};
+      $(function(){
+        $('#input').val("changing input value");
+        person.name.first = "Ed"
+      });
+    </script>
+  </body>
+</html>
